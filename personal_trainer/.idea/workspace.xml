@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BookmarkManager">
+    <bookmark url="file://$PROJECT_DIR$/src/components/Training.js" line="42" mnemonic="9" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="972e8c70-b226-4113-90b7-f6f2c422b3e1" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -13,31 +16,95 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="App.js" pinned="false" current-in-tab="true">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="App.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/App.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="314">
-              <caret line="21" column="0" lean-forward="true" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+            <state relative-caret-position="360">
+              <caret line="24" column="33" lean-forward="false" selection-start-line="24" selection-start-column="33" selection-end-line="24" selection-end-column="33" />
               <folding>
-                <element signature="e#0#41#0" expanded="true" />
+                <element signature="e#0#39#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Home.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/components/Home.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="225">
+              <caret line="15" column="0" lean-forward="false" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Customer.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/components/Customer.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="240">
+              <caret line="105" column="27" lean-forward="true" selection-start-line="105" selection-start-column="27" selection-end-line="105" selection-end-column="27" />
+              <folding>
+                <element signature="e#0#39#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Training.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/components/Training.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="445">
+              <caret line="47" column="8" lean-forward="false" selection-start-line="47" selection-start-column="8" selection-end-line="47" selection-end-column="8" />
+              <folding>
+                <element signature="e#0#39#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/index.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="166">
+              <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
     </leaf>
   </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>import React\, \{Component\} from \'react\'\;\n\n\nclass Training extends Component \{\n    constructor\(props\)\{\n        super\(props\)\;\n        this\.state\= \{\}\;\n    \}\n\n\n\n    render\(\) \{\n        return \(\n            \&lt;div\&gt;\n\n            \&lt;\/div\&gt;\n        \)\;\n    \}\n\}\n\n\nexport default Training\;</find>
+      <find>import React\, \{Component\} from \'react\'\;\n\n\nclass Training extends Component \{\n    constructor\(props\) \{\n        super\(props\)\;\n        this\.state \= \{\}\;\n    \}\ncomponentDidMount\(\)\{\n        \n\}\n    \n\n    render\(\) \{\n        return \(\n            \&lt;div\&gt;\n\n            \&lt;\/div\&gt;\n        \)\;\n    \}\n\}\n\n\nexport default Training\;</find>
+      <find>import React\, \{Component\} from \'react\'\;\nimport ReactTable from \'react\-table\'\nimport \&quot;react\-table\/react\-table\.css\&quot;\;\n\n\]\n\nclass Customer extends Component \{\n    constructor\(props\) \{\n        super\(props\)\;\n        this\.state \= \{customer\: \[\]\, training\: \[\]\}\;\n\n\n    \}\n\n\n    componentDidMount\(\) \{\n        this\.loadCustomers\(\)\;\n        this\.loadTrainings\(\)\;\n    \}\n\n    deleteCar \= \(value\) \=\&gt; \{\n        fetch\(value\)\n            \.then\(response \=\&gt; response\.json\(\)\)\n            \.then\(responseData \=\&gt; \{\n                this\.setState\(\{customer\: responseData\.content\}\)\n            \}\)\n\n    \}\n\n\n\/\/ Load the customer from API\n    loadCustomers \= \(\) \=\&gt; \{\n        fetch\(\'https\:\/\/customerrest\.herokuapp\.com\/api\/customers\'\)\n            \.then\(response \=\&gt; response\.json\(\)\)\n            \.then\(responseData \=\&gt; \{\n                this\.setState\(\{customer\: responseData\.content\}\)\n            \}\)\n\n    \}\n    loadTrainings \= \(\) \=\&gt; \{\n        fetch\(\'https\:\/\/customerrest\.herokuapp\.com\/api\/trainings\'\)\n            \.then\(response \=\&gt; response\.json\(\)\)\n            \.then\(responseData \=\&gt; \{\n                this\.setState\(\{training\: responseData\.content\}\)\n            \}\)\n\n    \}\n\n\n    render\(\) \{\n        const customerColumns \= \[\n            \{\n                Header\: \&quot;First Name\&quot;\,\n                accessor\: \&quot;firstname\&quot;\n            \}\,\n            \{\n                Header\: \&quot;Last Name\&quot;\,\n                accessor\: \&quot;lastname\&quot;\n            \}\,\n            \{\n                Header\: \&quot;Street Address\&quot;\,\n                accessor\: \&quot;streetaddress\&quot;\n            \}\,\n            \{\n                Header\: \&quot;Postcode\&quot;\,\n                accessor\: \&quot;postcode\&quot;\n            \}\,\n            \{\n                Header\: \&quot;City\&quot;\,\n                accessor\: \&quot;city\&quot;\n            \}\,\n            \{\n                Header\: \&quot;Email\&quot;\,\n                accessor\: \&quot;email\&quot;\,\n            \}\,\n            \{\n                Header\: \&quot;Phone\&quot;\,\n                accessor\: \&quot;phone\&quot;\,\n            \}\,\n            \{\n                Header\: \&quot;Email\&quot;\,\n                accessor\: \&quot;email\&quot;\,\n            \}\,\n            \{\n                Header\: \&quot;Training\&quot;\,\n                accessor\: \&quot;links\[2\]\.href\&quot;\,\n\n            \}\n\n        \]\n        const trainingColumns \= \[\n            \{\n                Header\: \&quot;Date\&quot;\,\n                accessor\: \&quot;date\&quot;\n            \}\,\n            \{\n                Header\: \&quot;Duration\&quot;\,\n                accessor\: \&quot;duration\&quot;\n            \}\,\n            \{\n                Header\: \&quot;Activity\&quot;\,\n                accessor\: \&quot;activity\&quot;\n            \}\n\n\n        return \(\n            \&lt;div\&gt;\n                \&lt;ReactTable\n                    data\=\{this\.state\.customer\}\n                    columns\=\{customerColumns\}\n                    filterable\n                    defaultPageSize\=\{10\}\n                    className\=\&quot;\-striped \-highlight\&quot;\n                    SubComponent\=\{row \=\&gt; \{\n                        return \(\n                            \&lt;div style\=\{\{padding\: \&quot;20px\&quot;\}\}\&gt;\n                                \&lt;em\&gt;\n                                    Trainings\n                                \&lt;\/em\&gt;\n                                \&lt;br\/\&gt;\n                                \&lt;br\/\&gt;\n                                \&lt;ReactTable\n                                    data\=\{this\.state\.training\}\n                                    columns\=\{trainingColumns\}\n                                    filterable\n                                    showPagination\=\{false\}\n                                \/\&gt;\n                            \&lt;\/div\&gt;\n                        \)\;\n                    \}\}\n                \/\&gt;\n            \&lt;\/div\&gt;\n        \)\;\n    \}\n\}\n\n\nexport default Customer\;</find>
+      <find>import React\, \{Component\} from \'react\'\;\nimport SkyLight from \'react\-skylight\'\;\nimport ReactTable from \'react\-table\'\nimport \&quot;react\-table\/react\-table\.css\&quot;\;\n\nclass Training extends Component \{\n    constructor\(props\) \{\n        super\(props\)\;\n        this\.state \= \{training\: \[\]\}\;\n    \}\n\n    componentDidMount\(\) \{\n\n    \}\n\n\n    render\(\) \{\n        return \(\n            \&lt;div\&gt;\n                \&lt;SkyLight hideOnOverlayClicked ref\=\{ref \=\&gt; this\.simpleDialog \= ref\} title\=\&quot;Trainings\&quot;\&gt;\n                    \&lt;ReactTable\n                        data\=\{this\.state\.customer\}\n                        columns\=\{\[\n                            \{\n                                Header\: \&quot;Trainings\&quot;\,\n                                columns\: \[\n                                    \{\n                                        Header\: \&quot;Date\&quot;\,\n                                        accessor\: \&quot;date\&quot;\n                                    \}\,\n                                    \{\n                                        Header\: \&quot;Duration\&quot;\,\n                                        accessor\: \&quot;duration\&quot;\n                                    \}\,\n                                    \{\n                                        Header\: \&quot;Activity\&quot;\,\n                                        accessor\: \&quot;activity\&quot;\n                                    \}\,\n                                    \{\n                                        Header\: \&quot;Date\&quot;\,\n                                        accessor\: \&quot;date\&quot;\n                                    \}\n                                \]\n                            \}\n\n                        \]\}\n\n                        filterable\n                        defaultPageSize\=\{10\}\n                        className\=\&quot;\-striped \-highlight\&quot;\n\n                    \/\&gt;\n                \&lt;\/SkyLight\&gt;\n            \&lt;\/div\&gt;\n        \)\;\n    \}\n\}\n\n\nexport default Training\;</find>
+    </findStrings>
+  </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/src/components/Home.js" />
+        <option value="$PROJECT_DIR$/src/components/test.js" />
+        <option value="$PROJECT_DIR$/src/components/Trainings.js" />
+        <option value="$PROJECT_DIR$/public/index.html" />
+        <option value="$PROJECT_DIR$/src/App.js" />
+        <option value="$PROJECT_DIR$/src/components/Training.js" />
+        <option value="$PROJECT_DIR$/src/components/Customer.js" />
       </list>
     </option>
   </component>
   <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
   <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER">
     <package-json value="$PROJECT_DIR$/package.json" />
+  </component>
+  <component name="JsFlowSettings">
+    <service-enabled>true</service-enabled>
+    <exe-path />
+    <other-services-enabled>true</other-services-enabled>
+    <auto-save>true</auto-save>
   </component>
   <component name="JsGulpfileManager">
     <detection-done>true</detection-done>
@@ -105,7 +172,18 @@
             <path>
               <item name="personal_trainer" type="b2602c69:ProjectViewProjectNode" />
               <item name="personal_trainer" type="462c0819:PsiDirectoryNode" />
+              <item name="public" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="personal_trainer" type="b2602c69:ProjectViewProjectNode" />
+              <item name="personal_trainer" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="personal_trainer" type="b2602c69:ProjectViewProjectNode" />
+              <item name="personal_trainer" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -117,10 +195,12 @@
   </component>
   <component name="PropertiesComponent">
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
-    <property name="settings.editor.selected.configurable" value="configurable.group.appearance" />
+    <property name="settings.editor.selected.configurable" value="editing.templates" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="HbShouldOpenHtmlAsHb" value="" />
+    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
+    <property name="JavaScriptWeakerCompletionTypeGuess" value="true" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -147,33 +227,36 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1523894938652</updated>
-      <workItem from="1523894940007" duration="769000" />
+      <workItem from="1523894940007" duration="1972000" />
+      <workItem from="1523898697508" duration="164000" />
+      <workItem from="1523898875401" duration="86000" />
+      <workItem from="1523899036301" duration="11854000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="769000" />
+    <option name="totallyTimeSpent" value="14076000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="2" y="22" width="779" height="794" extended-state="0" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.28364116" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32904148" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32796487" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -188,20 +271,122 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/components/Home.js">
+    <entry file="file://$PROJECT_DIR$/src/components/Trainings.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="0" lean-forward="true" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/App.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="314">
-          <caret line="21" column="0" lean-forward="true" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#0#41#0" expanded="true" />
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/Trainings" />
+    <entry file="file://$PROJECT_DIR$/src/components/test.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/Trainings.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="166">
+          <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/App.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="24" column="33" lean-forward="false" selection-start-line="24" selection-start-column="33" selection-end-line="24" selection-end-column="33" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/Home.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" column="0" lean-forward="false" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/react-table/es/defaultProps.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1938">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/react-table/es/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/react-table/es/lifecycle.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/react-table/es/methods.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/Customer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="105" column="27" lean-forward="true" selection-start-line="105" selection-start-column="27" selection-end-line="105" selection-end-column="27" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/Training.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="445">
+          <caret line="47" column="8" lean-forward="false" selection-start-line="47" selection-start-column="8" selection-end-line="47" selection-end-column="8" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
           </folding>
         </state>
       </provider>
