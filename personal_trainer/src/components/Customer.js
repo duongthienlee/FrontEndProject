@@ -1,7 +1,10 @@
 import React, {Component} from 'react';
 import ReactTable from 'react-table'
 import "react-table/react-table.css";
-
+import {ToastContainer, toast} from 'react-toastify';
+import { confirmAlert } from 'react-confirm-alert'; // Import
+import 'react-confirm-alert/src/react-confirm-alert.css' // Import css
+import AddCustomer from './AddCustomer';
 
 class Customer extends Component {
     constructor(props) {
@@ -15,10 +18,10 @@ class Customer extends Component {
 
     componentDidMount() {
         this.loadCustomers();
-        
+
     }
 
-
+// fetch training
     fetchTraining = (value) => {
         fetch(value)
             .then(res => res.json())
@@ -40,13 +43,55 @@ class Customer extends Component {
 
     }
 
+    // add customer
+    addCustomer = (newCustomer) => {
+        fetch('https://customerrest.herokuapp.com/api/customers',
+            {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify(newCustomer)
+            })
+            .then(respond => this.loadCustomers())
+            .catch(error => console.error((error)))
+    }
+    deleteCustomer = (value) => {
+        console.log(value, "this is delete")
+        confirmAlert({
+
+            message: 'Are you sure to do this.',
+            buttons: [
+                {
+                    label: 'Yes',
+                    onClick: () => fetch(value, {method: 'DELETE'})
+                        .then(res => {
+                                this.loadCustomers()
+                                toast.success("Success Notification !", {
+                                        position: toast.POSITION.TOP_RIGHT
+                                    }
+                                )
+                            }
+                        ).catch(err => console.error(err))
+
+                },
+                {
+                    label: 'No'
+                }
+            ]
+        })
+
+
+    }
 
     render() {
 
 
         return (
-            <div>
-                <ReactTable
+            <div className="container">
+                <div className="row">
+                    <AddCustomer addCustomer={this.addCustomer}/>
+
+                </div>
+                <ReactTable id="table_container"
 
                     data={this.state.customer}
                     columns={[
@@ -85,7 +130,22 @@ class Customer extends Component {
                                 {
                                     Header: "Phone",
                                     accessor: "phone",
-                                }]
+                                },
+                                {
+                                    id: "button",
+                                    accessor: "links[1].href",
+                                    filterable: false,
+                                    sortable: false,
+                                    width: 100,
+                                    Cell: ({value}) => (
+                                        <button className="btn btn-warning" style={{margin: 10}} onClick={() => {
+                                            this.deleteCustomer(value)
+                                        }}>Delete</button>)
+
+
+                                }
+
+                                ]
                         }]}
 
                     getTdProps={(state, rowInfo, column, instance) => {
@@ -96,25 +156,22 @@ class Customer extends Component {
                                 console.log(idLink)
 
                                 this.fetchTraining(idLink)
-                                if (handleOriginal) {
-                                    handleOriginal(
 
-                                    )
-                                }
                             }
                         }
                     }}
                     filterable
                     defaultPageSize={10}
                     freezeWhenExpanded={true}
-                    onExpandedChange={undefined}
+
+
                     SubComponent={row => {
                         return (
                             <div style={{
+                                position: "relative",
                                 width: "50%",
                                 height: "100%",
-                                left:"50%",
-                                borderRadius: "2px"
+                                left: "25%"
                             }}>
 
                                 <br/>
@@ -143,13 +200,13 @@ class Customer extends Component {
                                     ]}
                                     defaultPageSize={3}
                                     showPagination={false}
-                                    collapseOnDataChange={false}
 
                                 />
                             </div>
                         );
                     }}
                 />
+                <ToastContainer autoClose={8000}/>
             </div>
         );
     }
