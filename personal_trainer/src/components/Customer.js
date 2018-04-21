@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import ReactTable from 'react-table'
 import "react-table/react-table.css";
 import {ToastContainer, toast} from 'react-toastify';
-import { confirmAlert } from 'react-confirm-alert'; // Import
+import {confirmAlert} from 'react-confirm-alert'; // Import
 import 'react-confirm-alert/src/react-confirm-alert.css' // Import css
 import AddCustomer from './AddCustomer';
 
@@ -91,7 +91,7 @@ class Customer extends Component {
                     <AddCustomer addCustomer={this.addCustomer}/>
 
                 </div>
-                <ReactTable id="table_container"
+                <ReactTable
 
                     data={this.state.customer}
                     columns={[
@@ -145,7 +145,7 @@ class Customer extends Component {
 
                                 }
 
-                                ]
+                            ]
                         }]}
 
                     getTdProps={(state, rowInfo, column, instance) => {
@@ -157,6 +157,11 @@ class Customer extends Component {
 
                                 this.fetchTraining(idLink)
 
+                                if (handleOriginal) {
+                                    handleOriginal(
+
+                                    )
+                                }
                             }
                         }
                     }}
