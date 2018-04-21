@@ -1,12 +1,12 @@
 import React, {Component} from 'react';
 import ReactTable from 'react-table'
 import "react-table/react-table.css";
-import Training from './Training.js'
 
 
 class Customer extends Component {
     constructor(props) {
         super(props);
+
         this.state = {customer: [], training: []};
 
 
@@ -15,17 +15,17 @@ class Customer extends Component {
 
     componentDidMount() {
         this.loadCustomers();
-
+        
     }
 
-    getTraining = (value) => {
-    console.log(value)
+
+    fetchTraining = (value) => {
         fetch(value)
-            .then(response => response.json())
+            .then(res => res.json())
             .then(responseData => {
                 this.setState({training: responseData.content})
             })
-
+        console.log(value)
 
     }
 
@@ -41,13 +41,13 @@ class Customer extends Component {
     }
 
 
-
     render() {
 
 
         return (
             <div>
                 <ReactTable
+
                     data={this.state.customer}
                     columns={[
                         {
@@ -64,7 +64,7 @@ class Customer extends Component {
                             ]
                         },
                         {
-                            Header: "Trainings",
+                            Header: "Info",
                             columns: [
                                 {
                                     Header: "Street Address",
@@ -85,30 +85,70 @@ class Customer extends Component {
                                 {
                                     Header: "Phone",
                                     accessor: "phone",
-                                },
-                                {
-                                    Header: "Email",
-                                    accessor: "email",
                                 }]
-                        },
-                        {
-                            Header: 'Trainings',
-                            columns: [
-                                {
-                                    Header: "Training",
-                                    accessor: "links[2].href",
-                                    Cell: ({value}) => (
-                                       <Training getTraining={this.getTraining(value)}/>)
-
-                                }
-
-                            ]
                         }]}
 
+                    getTdProps={(state, rowInfo, column, instance) => {
+                        return {
+                            onClick: (e, handleOriginal) => {
+                                let idLink = rowInfo.original.links[2].href
+
+                                console.log(idLink)
+
+                                this.fetchTraining(idLink)
+                                if (handleOriginal) {
+                                    handleOriginal(
+
+                                    )
+                                }
+                            }
+                        }
+                    }}
                     filterable
                     defaultPageSize={10}
-                    className="-striped -highlight"
+                    freezeWhenExpanded={true}
+                    onExpandedChange={undefined}
+                    SubComponent={row => {
+                        return (
+                            <div style={{
+                                width: "50%",
+                                height: "100%",
+                                left:"50%",
+                                borderRadius: "2px"
+                            }}>
 
+                                <br/>
+                                <br/>
+                                <ReactTable
+                                    data={this.state.training}
+                                    columns={[
+                                        {
+                                            Header: "Trainings",
+                                            columns: [
+                                                {
+                                                    Header: "Date",
+                                                    accessor: "date"
+                                                },
+                                                {
+                                                    Header: "Duration",
+                                                    accessor: "duration"
+                                                },
+                                                {
+                                                    Header: "Activity",
+                                                    accessor: "activity"
+                                                }
+                                            ]
+                                        }
+
+                                    ]}
+                                    defaultPageSize={3}
+                                    showPagination={false}
+                                    collapseOnDataChange={false}
+
+                                />
+                            </div>
+                        );
+                    }}
                 />
             </div>
         );
