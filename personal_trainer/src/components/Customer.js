@@ -66,7 +66,7 @@ class Customer extends Component {
                         .then(res => {
                                 this.loadCustomers()
                                 toast.success("Success Notification !", {
-                                        position: toast.POSITION.TOP_RIGHT
+                                        position: toast.POSITION.TOP_LEFT
                                     }
                                 )
                             }
@@ -95,6 +95,33 @@ class Customer extends Component {
 
                     data={this.state.customer}
                     columns={[
+                        {
+                            columns: [
+                                {
+                                    Cell: ({value}) => (
+                                        <button className="btn btn-warning" style={{margin: 10}} onClick={() => {
+                                            this.fetchTraining(value)
+                                        }}>Fetch</button>),
+
+                                    expander: true,
+                                    Header: () => <p>Training</p>,
+                                    width: 65,
+                                    Expander: ({isExpanded, ...rest}) =>
+                                        <div>
+                                            {isExpanded
+                                                ? <span>&#x2299;</span>
+                                                : <span>&#x2295;</span>}
+                                        </div>,
+                                    style: {
+                                        cursor: "pointer",
+                                        fontSize: 25,
+                                        padding: "0",
+                                        textAlign: "center",
+                                        userSelect: "none"
+                                    }
+                                }
+                            ]
+                        },
                         {
                             Header: "Name",
                             columns: [
@@ -151,17 +178,20 @@ class Customer extends Component {
                     getTdProps={(state, rowInfo, column, instance) => {
                         return {
                             onClick: (e, handleOriginal) => {
-                                let idLink = rowInfo.original.links[2].href
 
-                                console.log(idLink)
+                                if (rowInfo !== undefined) {
+                                    let idLink = rowInfo.original.links[2].href
+                                    console.log(idLink)
 
-                                this.fetchTraining(idLink)
+                                    this.fetchTraining(idLink)
 
+                                }
                                 if (handleOriginal) {
                                     handleOriginal(
-
                                     )
+
                                 }
+
                             }
                         }
                     }}
@@ -169,14 +199,13 @@ class Customer extends Component {
                     defaultPageSize={10}
                     freezeWhenExpanded={true}
 
-
                     SubComponent={row => {
                         return (
                             <div style={{
                                 position: "relative",
-                                width: "50%",
-                                height: "100%",
-                                left: "25%"
+                                width: "60%",
+                                top: "-70px",
+                                left: "20%"
                             }}>
 
                                 <br/>
@@ -203,9 +232,9 @@ class Customer extends Component {
                                         }
 
                                     ]}
+                                    filterable
                                     defaultPageSize={3}
-                                    showPagination={false}
-
+                                    className="-striped -highlight"
                                 />
                             </div>
                         );
