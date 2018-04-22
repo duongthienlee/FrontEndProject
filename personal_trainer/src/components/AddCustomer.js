@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import SkyLight from 'react-skylight';
 
-class Template extends Component {
+class AddCustomer extends Component {
     constructor(props) {
         super(props);
         this.state = {firstname: '', lastname: '', streetaddress: '', postcode: '', city: '', email: '', phone: ''}
@@ -66,7 +66,7 @@ class Template extends Component {
                             <input placeholder="Phone" className="form-control" type="number" name="phone"
                                    onChange={this.handleChange}/>
                         </div>
-                        <button className="btn btn-primary" onClick={this.handleSubmit}>Save</button>
+                        <button className="btn btn-primary" onClick={this.handleSubmit}>Add</button>
                     </form>
                 </SkyLight>
                 <button className="btn btn-primary" style={{margin: 10}} onClick={() => this.simpleDialog.show()}>Add
@@ -78,4 +78,4 @@ class Template extends Component {
 }
 
 
-export default Template;
+export default AddCustomer;

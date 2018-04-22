@@ -1,0 +1,21 @@
+   getTdProps={(state, rowInfo, column, instance) => {
+                        return {
+                            onClick: (e, handleOriginal) => {
+
+                                if (rowInfo !== undefined) {
+                                    let idLink = rowInfo.original.links[2].href
+                                    console.log(idLink)
+
+                                    this.fetchTraining(idLink)
+
+                                }
+                                if (handleOriginal) {
+                                    handleOriginal(
+                                    )
+
+                                }
+
+                            }
+                        }
+                    }}
+
