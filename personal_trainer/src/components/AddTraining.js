@@ -4,7 +4,7 @@ import SkyLight from 'react-skylight';
 class AddTraining extends Component {
     constructor(props) {
         super(props);
-        this.state = {date: '', duration: '', activity: '',customer:''}
+        this.state = {date: '', duration: '', activity: '', customer: ''}
     }
 
     handleChange = (event) => {
@@ -12,12 +12,12 @@ class AddTraining extends Component {
     }
     handleSubmit = (event) => {
         event.preventDefault();
-
+        console.log(this.props.customerLink)
         const newTraining = {
             date: this.state.date,
-            duration: this.state.duration,
             activity: this.state.activity,
-            customer:this.props.customer
+            duration: this.state.duration,
+            customer: this.props.customerLink
         }
         this.props.addTraining(newTraining)
         this.simpleDialog.hide()
@@ -26,16 +26,17 @@ class AddTraining extends Component {
     render() {
         return (
             <div>
+
                 <SkyLight hideOnOverlayClicked ref={ref => this.simpleDialog = ref} title="Add Training">
                     <form>
                         <div className="form-group">
 
-                            <input placeholder="Date" className="form-control" type="text" name="date"
+                            <input placeholder="Date" className="form-control" type="date" name="date"
                                    onChange={this.handleChange}/>
                         </div>
                         <div className="form-group">
 
-                            <input placeholder="Duration" className="form-control" type="text" name="duration"
+                            <input placeholder="Duration" className="form-control" type="number" name="duration"
                                    onChange={this.handleChange}/>
                         </div>
                         <div className="form-group">
@@ -45,10 +46,11 @@ class AddTraining extends Component {
                         </div>
 
 
-                        <button className="btn btn-primary" onClick={this.handleSubmit}>Add</button>
+                        <button className="btn btn-outline-primary btn-sm" onClick={this.handleSubmit}>Add</button>
                     </form>
                 </SkyLight>
-                <button className="btn btn-primary" style={{margin: 10}} onClick={() => this.simpleDialog.show()}>Add
+                <button className="btn btn-outline-primary btn-sm" style={{margin: 10}}
+                        onClick={() => this.simpleDialog.show()}>Add
                     training
                 </button>
             </div>

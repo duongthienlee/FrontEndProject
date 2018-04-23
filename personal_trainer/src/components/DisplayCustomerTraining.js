@@ -10,7 +10,7 @@ import AddTraining from "./AddTraining"; // Import css
 class DisplayCustomerTraining extends Component {
     constructor(props) {
         super(props);
-        this.state = {training: []};
+        this.state = {trainings: []};
     }
 
 
@@ -19,16 +19,15 @@ class DisplayCustomerTraining extends Component {
 
     }
 
-    // -----------------------------------------Get customerLink section ------------------------------------------------
-
     // -----------------------------------------Load training section --------------------------------------------------
     loadTraining = () => {
         fetch(this.props.idLink)
             .then(res => res.json())
             .then(responseData => {
-                this.setState({training: responseData.content})
+                this.setState({trainings: responseData.content})
             })
-        console.log(this.props.idLink, this.props.customerLink)
+        console.log(this.props.idLink, "\n", this.props.customerLink, "\n")
+
 
     }
     // -----------------------------------------Add training section ---------------------------------------------------
@@ -40,6 +39,11 @@ class DisplayCustomerTraining extends Component {
                 headers: {'Content-Type': 'application/json'},
                 body: JSON.stringify(newTraining)
             })
+            .then(
+                toast.success("Add successfully!"), {
+                    position: toast.POSITION.BOTTOM_LEFT
+                }
+            )
             .then(respond => this.loadTraining())
             .catch(error => console.error((error)))
     }
@@ -56,7 +60,7 @@ class DisplayCustomerTraining extends Component {
                     onClick: () => fetch(value, {method: 'DELETE'})
                         .then(res => {
                                 this.loadTraining()
-                                toast.success("Success Notification !", {
+                                toast.success("Delete Successfully !", {
                                         position: toast.POSITION.TOP_RIGHT
                                     }
                                 )
@@ -72,6 +76,44 @@ class DisplayCustomerTraining extends Component {
 
 
     }
+
+    // -----------------------------------------Edit Training section --------------------------------------------------
+    EditTraining(training, link) {
+        fetch(link,
+            {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(training)
+            })
+            .then(
+                toast.success("Changes saved!"), {
+                    position: toast.POSITION.BOTTOM_LEFT
+                }
+            )
+            .catch(err => console.error(err))
+    }
+
+    renderEditable = (cellInfo) => {
+        return (
+            <div
+                style={{backgroundColor: "#fafafa"}}
+                contentEditable
+                suppressContentEditableWarning
+                onBlur={e => {
+                    const data = [...this.state.trainings];
+                    data[cellInfo.index][cellInfo.column.id] = e.target.innerHTML;
+                    this.setState({trainings: data});
+                }}
+                dangerouslySetInnerHTML={{
+                    __html: this.state.trainings[cellInfo.index][cellInfo.column.id]
+                }}
+            />
+        )
+    }
+
+
     // -----------------------------------------Render section ---------------------------------------------------------
     render() {
         return (
@@ -81,28 +123,43 @@ class DisplayCustomerTraining extends Component {
                 top: "-20px",
                 left: "15%"
             }}>
-                <ToastContainer autoClose={8000}/>
+                <ToastContainer autoClose={3000}/>
                 <div className="row">
-                    <AddTraining addTraining={this.addTraining}/>
+                    <AddTraining addTraining={this.addTraining} customerLink={this.props.customerLink}/>
 
                 </div>
+
                 <ReactTable
-                    data={this.state.training}
+                    data={this.state.trainings}
                     columns={[
                         {
                             Header: "Trainings",
                             columns: [
                                 {
                                     Header: "Date",
-                                    accessor: "date"
+                                    accessor: "date",
+                                    Cell: this.renderEditable
                                 },
                                 {
                                     Header: "Duration",
-                                    accessor: "duration"
+                                    accessor: "duration",
+                                    Cell: this.renderEditable
                                 },
                                 {
                                     Header: "Activity",
-                                    accessor: "activity"
+                                    accessor: "activity",
+                                    Cell: this.renderEditable
+                                },
+                                {
+                                    id: 'button',
+                                    sortable: false,
+                                    filterable: false,
+                                    width: 100,
+                                    accessor: 'links.self.href',
+                                    Cell: ({value, row}) => (
+                                        <button className="btn btn-outline-success btn-sm" onClick={() => {
+                                            this.EditTraining(row, value)
+                                        }}>Save</button>)
                                 },
                                 {
                                     id: "button",
@@ -111,7 +168,7 @@ class DisplayCustomerTraining extends Component {
                                     sortable: false,
                                     width: 100,
                                     Cell: ({value}) => (
-                                        <button className="btn btn-warning" onClick={() => {
+                                        <button className="btn btn-outline-warning btn-sm" onClick={() => {
                                             this.deleteTraining(value)
                                         }}>Delete</button>)
 
@@ -123,7 +180,7 @@ class DisplayCustomerTraining extends Component {
                     ]}
                     filterable
                     defaultPageSize={2}
-                    className="-striped -highlight"
+                    className="-striped -highlight "
                 />
             </div>
         );

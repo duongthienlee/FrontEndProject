@@ -43,12 +43,13 @@ class AddCustomer extends Component {
                         </div>
                         <div className="form-group">
 
-                            <input placeholder="Street Address" className="form-control" type="text" name="streetaddress"
+                            <input placeholder="Street Address" className="form-control" type="text"
+                                   name="streetaddress"
                                    onChange={this.handleChange}/>
                         </div>
                         <div className="form-group">
 
-                            <input placeholder="Postcode" className="form-control" type="number" name="postcode"
+                            <input placeholder="Postcode" className="form-control" type="text" name="postcode"
                                    onChange={this.handleChange}/>
                         </div>
                         <div className="form-group">
@@ -58,12 +59,12 @@ class AddCustomer extends Component {
                         </div>
                         <div className="form-group">
 
-                            <input placeholder="Email" className="form-control" type="email" name="email"
+                            <input placeholder="Email" className="form-control" type="text" name="email"
                                    onChange={this.handleChange}/>
                         </div>
                         <div className="form-group">
 
-                            <input placeholder="Phone" className="form-control" type="number" name="phone"
+                            <input placeholder="Phone" className="form-control" type="text" name="phone"
                                    onChange={this.handleChange}/>
                         </div>
                         <button className="btn btn-primary" onClick={this.handleSubmit}>Add</button>

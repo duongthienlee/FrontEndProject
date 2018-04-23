@@ -39,6 +39,11 @@ class Customer extends Component {
                 headers: {'Content-Type': 'application/json'},
                 body: JSON.stringify(newCustomer)
             })
+            .then(
+                toast.success("Add successfully!"), {
+                    position: toast.POSITION.BOTTOM_LEFT
+                }
+            )
             .then(respond => this.loadCustomers())
             .catch(error => console.error((error)))
     }
@@ -54,7 +59,7 @@ class Customer extends Component {
                     onClick: () => fetch(value, {method: 'DELETE'})
                         .then(res => {
                                 this.loadCustomers()
-                                toast.success("Success Notification !", {
+                                toast.success("Delete Successfully !", {
                                         position: toast.POSITION.TOP_RIGHT
                                     }
                                 )
@@ -115,7 +120,7 @@ class Customer extends Component {
         return (
 
             <div className="container">
-                <ToastContainer autoClose={8000}/>
+                <ToastContainer autoClose={3000}/>
 
                 <div className="row">
                     <AddCustomer addCustomer={this.addCustomer}/>
@@ -201,7 +206,7 @@ class Customer extends Component {
                                     width: 100,
                                     accessor: 'links.self.href',
                                     Cell: ({value, row}) => (
-                                        <button className="btn btn-primary" onClick={() => {
+                                        <button className="btn btn-success" onClick={() => {
                                             this.EditCustomer(row, value)
                                         }}>Save</button>)
                                 },
