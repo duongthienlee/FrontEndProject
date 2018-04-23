@@ -29,7 +29,7 @@ class AddCustomer extends Component {
     render() {
         return (
             <div>
-                <SkyLight hideOnOverlayClicked ref={ref => this.simpleDialog = ref} title="Add Car">
+                <SkyLight hideOnOverlayClicked ref={ref => this.simpleDialog = ref} title="Add Customer">
                     <form>
                         <div className="form-group">
 
