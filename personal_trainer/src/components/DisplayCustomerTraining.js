@@ -14,21 +14,24 @@ class DisplayCustomerTraining extends Component {
     }
 
 
-// fetch training
     componentDidMount() {
-        this.fetchTraining();
+        this.loadTraining();
 
     }
 
-    fetchTraining = () => {
+    // -----------------------------------------Get customerLink section ------------------------------------------------
+
+    // -----------------------------------------Load training section --------------------------------------------------
+    loadTraining = () => {
         fetch(this.props.idLink)
             .then(res => res.json())
             .then(responseData => {
                 this.setState({training: responseData.content})
             })
-        console.log(this.props.idLink)
+        console.log(this.props.idLink, this.props.customerLink)
 
     }
+    // -----------------------------------------Add training section ---------------------------------------------------
     addTraining = (newTraining) => {
 
         fetch('https://customerrest.herokuapp.com/api/trainings',
@@ -37,10 +40,11 @@ class DisplayCustomerTraining extends Component {
                 headers: {'Content-Type': 'application/json'},
                 body: JSON.stringify(newTraining)
             })
-            .then(respond => this.fetchTraining())
+            .then(respond => this.loadTraining())
             .catch(error => console.error((error)))
     }
 
+    // -----------------------------------------Delete training section ------------------------------------------------
     deleteTraining = (value) => {
         console.log(value, "this is delete")
         confirmAlert({
@@ -51,7 +55,7 @@ class DisplayCustomerTraining extends Component {
                     label: 'Yes',
                     onClick: () => fetch(value, {method: 'DELETE'})
                         .then(res => {
-                                this.fetchTraining()
+                                this.loadTraining()
                                 toast.success("Success Notification !", {
                                         position: toast.POSITION.TOP_RIGHT
                                     }
@@ -68,7 +72,7 @@ class DisplayCustomerTraining extends Component {
 
 
     }
-
+    // -----------------------------------------Render section ---------------------------------------------------------
     render() {
         return (
             <div style={{

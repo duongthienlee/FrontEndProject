@@ -17,7 +17,7 @@ class AddTraining extends Component {
             date: this.state.date,
             duration: this.state.duration,
             activity: this.state.activity,
-            customer:this.state.customer
+            customer:this.props.customer
         }
         this.props.addTraining(newTraining)
         this.simpleDialog.hide()
@@ -43,11 +43,7 @@ class AddTraining extends Component {
                             <input placeholder="Activity" className="form-control" type="text" name="activity"
                                    onChange={this.handleChange}/>
                         </div>
-                        <div className="form-group">
 
-                            <input placeholder="Customer" className="form-control" type="url" name="customer"
-                                   onChange={this.handleChange}/>
-                        </div>
 
                         <button className="btn btn-primary" onClick={this.handleSubmit}>Add</button>
                     </form>
